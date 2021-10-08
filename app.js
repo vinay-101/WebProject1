@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/test', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-const port = 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use('/static', express.static('static')); //Serving static file
 app.set('views', path.join(__dirname, 'views'));
@@ -50,6 +50,6 @@ app.post('/contact',function(req,res){
   })
 })
 
-app.listen(port, () => {
-  console.log(`This Express started Succesfully on ${port}`);
+app.listen(PORT, () => {
+  console.log(`This Express started Succesfully on ${PORT}`);
 })
